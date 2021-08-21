@@ -1,4 +1,4 @@
-package com.harish.ListingReportsGenerator;
+package com.harish.ListingReportsGenerator.exceptions;
 
 public class ListingsReportGeneratorException extends Exception {
     public ListingsReportGeneratorException(String message, Throwable throwable) {

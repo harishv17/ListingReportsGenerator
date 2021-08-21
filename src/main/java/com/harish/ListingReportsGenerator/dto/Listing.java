@@ -57,4 +57,15 @@ public class Listing {
     public void setSellarType(String sellarType) {
         this.sellarType = sellarType;
     }
+
+    @Override
+    public String toString() {
+        return "Listing{" +
+                "id=" + id +
+                ", make='" + make + '\'' +
+                ", price=" + price +
+                ", mileage=" + mileage +
+                ", sellarType='" + sellarType + '\'' +
+                '}';
+    }
 }
