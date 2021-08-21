@@ -6,6 +6,7 @@ import com.harish.ListingReportsGenerator.exceptions.ListingsReportGeneratorExce
 import com.harish.ListingReportsGenerator.repository.ContactsRepository;
 import com.harish.ListingReportsGenerator.repository.ListingRepository;
 import com.harish.ListingReportsGenerator.transformer.CsvFileTransformer;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,9 +24,15 @@ public class ContactsController {
         this.contactsRepository = contactsRepository;
     }
     @PostMapping("/contacts")
-    public List<Contacts> uploadListingFile(@RequestParam("contacts") MultipartFile file) throws ListingsReportGeneratorException {
+    public List<Contacts> addContacts(@RequestParam("contacts") MultipartFile file) throws ListingsReportGeneratorException {
         List<Contacts> contacts = csvFileTransformer.convert(file, Contacts.class);
         contactsRepository.saveAll(contacts);
         return contacts;
     }
+
+    @GetMapping("/contacts")
+    public List<Contacts> getAllContacts() {
+        return contactsRepository.findAll();
+    }
+
 }

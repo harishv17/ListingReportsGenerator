@@ -1,9 +1,11 @@
 package com.harish.ListingReportsGenerator.controller;
 
+import com.harish.ListingReportsGenerator.dto.Contacts;
 import com.harish.ListingReportsGenerator.dto.Listing;
 import com.harish.ListingReportsGenerator.exceptions.ListingsReportGeneratorException;
 import com.harish.ListingReportsGenerator.repository.ListingRepository;
 import com.harish.ListingReportsGenerator.transformer.CsvFileTransformer;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,5 +31,10 @@ public class ListingsController {
         System.out.println(listings);
         listingRepository.saveAll(listings);
         return listings;
+    }
+
+    @GetMapping("/listings")
+    public List<Listing> getAllListings() {
+        return listingRepository.findAll();
     }
 }
