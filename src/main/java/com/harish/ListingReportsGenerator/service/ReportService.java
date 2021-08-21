@@ -70,7 +70,10 @@ public class ReportService {
     }
 
     private String formatCurrency(long value) {
-        NumberFormat decimalFormat = DecimalFormat.getCurrencyInstance(Locale.GERMANY);
-        return String.format("%s %d,-", DecimalFormatSymbols.getInstance(Locale.GERMANY).getCurrencySymbol(), value);
+        NumberFormat numberFormat = DecimalFormat.getCurrencyInstance(Locale.GERMANY);
+        DecimalFormat decimalFormat = (DecimalFormat) numberFormat;
+        decimalFormat.applyPattern(DecimalFormatSymbols.getInstance(Locale.GERMANY).getCurrencySymbol()+" ###,###',-'");
+        return decimalFormat.format(value);
     }
+
 }
