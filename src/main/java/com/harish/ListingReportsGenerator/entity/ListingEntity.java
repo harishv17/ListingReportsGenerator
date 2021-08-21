@@ -1,12 +1,12 @@
-package com.harish.ListingReportsGenerator.dto;
+package com.harish.ListingReportsGenerator.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "listings")
-public class Listing {
+
+public class ListingEntity {
     @Id
     private int id;
     private String make;
@@ -14,7 +14,7 @@ public class Listing {
     private long mileage;
     private String sellarType;
 
-    public Listing(int id, String make, long price, long mileage, String sellarType) {
+    public ListingEntity(int id, String make, long price, long mileage, String sellarType) {
         this.id = id;
         this.make = make;
         this.price = price;
@@ -22,7 +22,7 @@ public class Listing {
         this.sellarType = sellarType;
     }
 
-    public Listing() {
+    public ListingEntity() {
     }
 
     public int getId() {
@@ -63,16 +63,5 @@ public class Listing {
 
     public void setSellarType(String sellarType) {
         this.sellarType = sellarType;
-    }
-
-    @Override
-    public String toString() {
-        return "Listing{" +
-                "id=" + id +
-                ", make='" + make + '\'' +
-                ", price=" + price +
-                ", mileage=" + mileage +
-                ", sellarType='" + sellarType + '\'' +
-                '}';
     }
 }

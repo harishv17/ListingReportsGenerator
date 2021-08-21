@@ -7,18 +7,21 @@ import com.harish.ListingReportsGenerator.exceptions.ListingsReportGeneratorExce
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Component
-public class CsvStringToClassTransformer {
+public class CsvFileTransformer {
 
-    Logger logger = LoggerFactory.getLogger(CsvStringToClassTransformer.class);
+    Logger logger = LoggerFactory.getLogger(CsvFileTransformer.class);
 
-    public <T> List<T> convert(String csvContent, Class<T> type) throws ListingsReportGeneratorException {
+    public <T> List<T> convert(MultipartFile listingFile, Class<T> type) throws ListingsReportGeneratorException {
         try {
+            String csvContent = new String(listingFile.getBytes(), StandardCharsets.UTF_8);
             var contentReader = new StringReader(csvContent);
             var csvMapper = new CsvMapper();
             CsvSchema csvSchema = new CsvMapper().schemaFor(type).withSkipFirstDataRow(true).withColumnSeparator(',');
