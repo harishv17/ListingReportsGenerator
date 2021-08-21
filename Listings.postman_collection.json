@@ -1,0 +1,64 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Listings",
+		"_postman_id": "96c9efba-bba3-4e88-9b1b-591cde9a25df",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post contacts",
+			"request": {
+				"url": "http://localhost:8080/contacts",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "contacts",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post listings",
+			"request": {
+				"url": "http://localhost:8080/listings/",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "listings",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "averageListingSellingPrices",
+			"request": {
+				"url": "http://localhost:8080/averageListingSellingPrices/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
