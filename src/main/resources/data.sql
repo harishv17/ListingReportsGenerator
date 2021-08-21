@@ -6,7 +6,7 @@ id INT PRIMARY KEY,
 make VARCHAR(100) NOT NULL,
 price INT NOT NULL,
 mileage INT NOT NULL,
-seller_type VARCHAR(50) NOT NULL
+sellerType VARCHAR(50) NOT NULL
 );
 
 create table contacts(
