@@ -1,5 +1,7 @@
 package com.harish.ListingReportsGenerator.dto;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,6 +10,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "listings")
+@JsonPropertyOrder({"id", "make", "price", "mileage", "sellerType"})
 public class Listing {
     @Id
     @NotNull
